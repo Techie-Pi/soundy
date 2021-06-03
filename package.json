@@ -1,10 +1,10 @@
 {
   "name": "@techiepi/soundy",
   "version": "0.1.0",
-  "description": "🔊 A simple, realiable and easy to use sound library",
+  "description": "🔊 A simple, reliable and easy to use sound library",
   "main": "index.js",
   "scripts": {
-    "test": "jest",
+    "test": "jest --passWithNoTests",
     "build": "webpack build"
   },
   "browserslist": [

@@ -5,7 +5,9 @@ module.exports = {
     entry: "./src/index.js",
     output: {
         path: Path.resolve(__dirname, "build"),
-        filename: "soundy.bundle.js"
+        filename: "soundy.bundle.js",
+        library: "Soundy",
+        libraryTarget: "var"
     },
     optimization: {
         splitChunks: {

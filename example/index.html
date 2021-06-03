@@ -1,0 +1,88 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=yes, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat&display=swap" rel="stylesheet">
+    <style>
+        .text {
+            text-align: center;
+            font-family: "Montserrat", sans-serif;
+        }
+
+        div {
+            text-align: center;
+            margin-top: 3rem;
+        }
+
+        button {
+            background-color: teal;
+            border: none;
+            color: white;
+            padding: 1rem 1.3rem;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 16px;
+            cursor: pointer;
+        }
+    </style>
+    <script src="../build/soundy.bundle.js"></script>
+    <title>Soundy Example/Test</title>
+</head>
+<body>
+<h1 class="text">Soundy Examples</h1>
+<h3 class="text">Some basic examples of Soundy and how to use them</h3>
+<p class="text">This example assumes the server has access to the whole project and is serving from the root</p>
+
+<div>
+    <button id="test1">Test Complete Base64 Audio</button>
+    <button id="test2">Test Incomplete Base64 Audio</button>
+    <button id="test3">Test URL Audio</button>
+</div>
+<div>
+    <button id="pause">Pause</button>
+    <button id="stop">Stop</button>
+    <button id="resume">Resume</button>
+</div>
+<script>
+    const soundy = new Soundy();
+
+    // In some contexts using window.location.origin can cause problems
+    console.log(`${window.location.href.substring(0, (() => { if(window.location.href.indexOf("?") !== -1) return window.location.href.indexOf("index.html"); else return window.location.href.length })())}/assets/complete.txt`)
+
+    document.getElementById("test1").addEventListener("click", async e => {
+        // Audio found at https://www.youtube.com/watch?v=o9_Gu3TI4IY
+        const res = await fetch(`${window.location.href.substring(0, (() => { if(window.location.href.indexOf("?") !== -1) return window.location.href.indexOf("index.html"); else return window.location.href.length })())}/assets/complete.txt`);
+        const base64 = await res.text();
+        await soundy.playRawBase64(base64);
+    })
+
+    document.getElementById("test2").addEventListener("click", async e => {
+        // Audio found at https://www.youtube.com/watch?v=o9_Gu3TI4IY
+        const res = await fetch(`${window.location.href.substring(0, (() => { if(window.location.href.indexOf("?") !== -1) return window.location.href.indexOf("index.html"); else return window.location.href.length })())}/assets/incomplete.txt`);
+        const base64 = await res.text();
+        await soundy.playRawBase64(base64, "ogg");
+    })
+
+    document.getElementById("test3").addEventListener("click", async e => {
+        await soundy.playUrl(`${window.location.href.substring(0, (() => { if(window.location.href.indexOf("?") !== -1) return window.location.href.indexOf("index.html"); else return window.location.href.length })())}/assets/url.mp3`);
+    })
+
+    document.getElementById("pause").addEventListener("click", e => {
+        soundy.pause();
+    })
+
+    document.getElementById("stop").addEventListener("click", e => {
+        soundy.stop();
+    })
+
+    document.getElementById("resume").addEventListener("click", async e => {
+        await soundy.resume();
+    })
+</script>
+</body>
+</html>

@@ -1,0 +1,7 @@
+{
+  "PLAY": "play",
+  "ERROR": "error",
+  "STOP": "stop",
+  "PAUSE": "pause",
+  "SOURCE_CHANGE": "sourcechange"
+}
