@@ -1,0 +1,31 @@
+{
+  "name": "@techiepi/soundy",
+  "version": "0.1.0",
+  "description": "🔊 A simple, realiable and easy to use sound library",
+  "main": "index.js",
+  "scripts": {
+    "test": "jest",
+    "build": "webpack build"
+  },
+  "browserslist": [
+    "defaults"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Techie-Pi/soundy.git"
+  },
+  "author": "Techie-Pi",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/Techie-Pi/soundy/issues"
+  },
+  "homepage": "https://github.com/Techie-Pi/soundy#readme",
+  "devDependencies": {
+    "eslint": "^7.27.0",
+    "eslint-plugin-jest": "^24.3.6",
+    "jest": "^27.0.3",
+    "webpack": "^5.38.1",
+    "webpack-bundle-analyzer": "^4.4.2",
+    "webpack-cli": "^4.7.0"
+  }
+}
