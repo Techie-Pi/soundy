@@ -1,8 +1,8 @@
 {
   "name": "@techiepi/soundy",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "description": "🔊 A simple, reliable and easy to use sound library",
-  "main": "index.js",
+  "main": "src/index.js",
   "scripts": {
     "test": "jest --passWithNoTests",
     "build": "webpack build"
@@ -30,5 +30,8 @@
   },
   "publishConfig": {
     "access": "public"
+  },
+  "dependencies": {
+    "@techiepi/loggerine": "^0.1.0"
   }
 }

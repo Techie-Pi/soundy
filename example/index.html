@@ -58,14 +58,14 @@
         // Audio found at https://www.youtube.com/watch?v=o9_Gu3TI4IY
         const res = await fetch(`${window.location.href.substring(0, (() => { if(window.location.href.indexOf("?") !== -1) return window.location.href.indexOf("index.html"); else return window.location.href.length })())}/assets/complete.txt`);
         const base64 = await res.text();
-        await soundy.playRawBase64(base64);
+        await soundy.playBase64(base64);
     })
 
     document.getElementById("test2").addEventListener("click", async e => {
         // Audio found at https://www.youtube.com/watch?v=o9_Gu3TI4IY
         const res = await fetch(`${window.location.href.substring(0, (() => { if(window.location.href.indexOf("?") !== -1) return window.location.href.indexOf("index.html"); else return window.location.href.length })())}/assets/incomplete.txt`);
         const base64 = await res.text();
-        await soundy.playRawBase64(base64, "ogg");
+        await soundy.playBase64(base64, "ogg");
     })
 
     document.getElementById("test3").addEventListener("click", async e => {

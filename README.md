@@ -14,14 +14,14 @@ You're done! Now you can use the library like in the example below
 const soundy = new Soundy();
 
 await soundy.playUrl("https://example.org/song.mp3"); // Will download and play the file
-soundy.playRawBase64("...", "mpeg") // You can use either raw base64 (SUQzBAA...) or a "complete" base64 (data:audio/mpeg;base64,SUQzB...)
+soundy.playBase64("...", "mpeg") // You can use either raw base64 (SUQzBAA...) or a "complete" base64 (data:audio/mpeg;base64,SUQzB...)
     .then(() => {
         console.log("Loaded and playing!")
     });
 
 // Get the base64 from an URL
-await soundy.playBase64FromUrl("https://example.org/song.txt", "mpeg", true /* Send cookies */);
-await soundy.playBase64FromUrl("https://example.org/song.txt", "mpeg", null /* Overriden by custom options */, { method: "POST", body: { ... } });
+await soundy.playBase64Url("https://example.org/song.txt", "mpeg", true /* Send cookies */);
+await soundy.playBase64Url("https://example.org/song.txt", "mpeg", null /* Overriden by custom options */, { method: "POST", body: { ... } });
 
 soundy.pause(); // Pause the current track
 await soundy.resume(); // Resumes the current track
